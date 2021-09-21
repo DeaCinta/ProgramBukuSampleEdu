@@ -13,6 +13,25 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\AERYICE-PC666\masterPieces\SampleEdu\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Program Sample Edu</ProductName>
+    <PublisherName>Edp Crew</PublisherName>
+    <SuiteName>Education</SuiteName>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +65,27 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>business_report_o8V_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3AD3201133F5B2A8719550DC87C571053768E8D6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ProgramBukuSampleEdu_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -71,6 +111,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formEdit.Designer.vb">
+      <DependentUpon>formEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="formInputBuku.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -78,10 +124,17 @@
       <DependentUpon>formInputBuku.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="INVDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>INVDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleKoneksi.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -95,6 +148,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="formEdit.resx">
+      <DependentUpon>formEdit.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formInputBuku.resx">
       <DependentUpon>formInputBuku.vb</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +162,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="INVDataSet.xsc">
+      <DependentUpon>INVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="INVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>INVDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="INVDataSet.xss">
+      <DependentUpon>INVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -115,6 +184,30 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProgramBukuSampleEdu_TemporaryKey.pfx" />
+    <None Include="Resources\close_window_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_database_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="business_report_o8V_icon.ico" />
+    <Content Include="favicon.ico" />
+    <None Include="Resources\minimize_window_30px.png" />
+    <None Include="Resources\maximize_window_30px.png" />
+    <None Include="Resources\edit_property_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
